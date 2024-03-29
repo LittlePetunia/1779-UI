@@ -1,0 +1,292 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+body{
+    background-image: url('backpic.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat;
+}
+
+.admin-info-container{
+    display: flex;
+    align-items: center;
+    margin-top: 3%;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.95);
+    margin-right: 5%;
+    margin-left: 5%;
+    border-radius: 10pt;
+    padding-top:10pt;
+    padding-bottom: 10pt;
+    height: 30%;
+    width: 90%;
+    border: 3px solid rgb(9, 7, 7);
+}
+.admin-info-left-container{
+    height: 100%;
+    width: auto;
+    margin-left: 10%;
+}
+.admin-pic{
+    width: 90%;
+    height: 80%;
+    border-radius: 100px;
+    border: 5px solid rgb(9, 7, 7);
+}
+.admin-info-right-container{
+    /*border-radius: 10px;*/
+    /*margin-top: 0;*/
+    height: 100%;
+    width: 50%;
+    margin-top: 0;
+    margin-right: 5%;
+   display: block;
+}
+
+.product-create-container{
+    display: flex;
+    margin-top: 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 10pt;
+    padding-top:10pt;
+    /*//padding-bottom: 10pt;*/
+    height: 30%;
+    width: 100%;
+    padding-bottom: 30px;
+}
+.create-header{
+    margin-left: 5%;
+    margin-bottom: 1%;
+    margin-top: 0;
+}
+.product-create-left-container{
+    height: 100%;
+    width: 40%;
+    margin-left: 5%;
+}
+.product-create-right-container{
+    height: 100%;
+    width: auto;
+    margin-left: 5%;
+}
+#ProductDescription{
+    width: 100%;
+    height: 100%;
+}
+#create-btn{
+    /*display: block; */
+    /*width: auto; */
+    /*margin: 20px auto; */
+    /*padding: 10px 20px*/
+}
+
+
+input[type="text"], input[type="number"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(9, 7, 7, 0.91);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.data-info-container{
+    box-sizing: border-box;
+    width: 90%;
+    height: 40%;
+    margin-left: 5%;
+    margin-right: 5%;
+    /*display: inline-flex;*/
+    /*margin-top: 3%;*/
+    /*margin-right: 5%;*/
+    /*margin-left: 5%;*/
+    /*padding-top:10pt;*/
+    /*padding-bottom: 10pt;*/
+    /*background-color: rgba(39, 59, 39, 0.9);*/
+    /*width: 90%;*/
+    /*height:40%;*/
+    border-radius: 10px;
+}
+
+.data-title-bar{
+    box-sizing: border-box;
+    height: 8%;
+    width: 100%;
+    background-color: rgba(9, 7, 7, 0.94);
+    border-radius: 5px;
+}
+
+li{
+    box-sizing: border-box;
+    float: left;
+    width: 33%;
+    height: 3%;
+    background-color: #e8e8e8;
+    list-style: none;
+    border-top:1px solid;
+    border-bottom: 1px solid;
+    text-align: center;
+    font-size: 20px;
+    cursor: pointer;
+    color: #f0f0f0;
+
+}
+
+.choose{
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 110, 179);
+}
+.data-display-container{
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-color: #f0f0f0;
+}
+.users-box{
+    display: block;
+    width: 100%;
+    overflow: auto;
+    height: 100%;
+    background-color: #f0f0f0;
+}
+.users-box::-webkit-scrollbar {
+    width: 5px;
+    height: 8px;
+    background-color: rgba(234, 230, 222, 0.99); /* or add it to the track */
+}
+.users-box::-webkit-scrollbar-thumb {
+    background: rgba(87, 84, 77, 0.4);
+    border-radius: 5px;
+}
+
+.products-box{
+    display: block;
+    width: 100%;
+    overflow: auto;
+    height: 100%;
+    background-color: #f0f0f0;
+}
+.products-box::-webkit-scrollbar {
+    width: 5px;
+    height: 8px;
+    background-color: #ffffff; /* or add it to the track */
+}
+.products-box::-webkit-scrollbar-thumb {
+    background: rgba(87, 84, 77, 0.4);
+    border-radius: 5px;
+}
+.orders-box{
+    display: block;
+    width: 100%;
+    overflow: auto;
+    height: 100%;
+    background-color: #f0f0f0;
+}
+.orders-box::-webkit-scrollbar {
+    width: 5px;
+    height: 8px;
+    background-color: #ffffff; /* or add it to the track */
+}
+.orders-box::-webkit-scrollbar-thumb {
+    background: rgba(87, 84, 77, 0.4);
+    border-radius: 5px;
+}
+.products-table,
+.user-table,
+.orders-table{
+    width: 100%;
+}
+
+
+tr:hover {background-color: rgba(150, 147, 147, 0.75);}
+th, td {
+  border-bottom: 1px solid #ddd;
+}
+
+/*.users-info-container{*/
+/*    width: 46%;*/
+/*    height: 90%;*/
+/*    margin-left: 1%;*/
+/*}*/
+
+/*.user-scroll-container{*/
+/*    display: block;*/
+/*    max-width: 100%;*/
+/*    overflow: auto;*/
+/*    height: 100%;*/
+
+/*    background-color: #f0f0f0;*/
+/*}*/
+/*.user-scroll-container::-webkit-scrollbar {*/
+/*    width: 5px;*/
+/*    height: 8px;*/
+/*    background-color: #ffffff; !* or add it to the track *!*/
+/*}*/
+/*.user-scroll-container::-webkit-scrollbar-thumb {*/
+/*    background: rgba(87, 84, 77, 0.4);*/
+/*    border-radius: 5px;*/
+/*}*/
+
+/*.user-table{*/
+/*    width: 100%;*/
+/*}*/
+
+/*.product-info-container{*/
+/*    width: 38%;*/
+/*    height: 90%;*/
+/*    margin-left: 1%;*/
+/*}*/
+/*.product-scroll-container{*/
+/*    display: block;*/
+/*    width: 100%;*/
+/*    overflow: auto;*/
+/*    height: 100%;*/
+/*    background-color: #f0f0f0;*/
+/*}*/
+/*.products-table{*/
+/*    width: 100%;*/
+/*    text-align: left;*/
+/*}*/
+/*.orders-info-container{*/
+/*    width: 11%;*/
+/*    margin-left: 1%;*/
+/*    margin-right: 1%;*/
+/*    height: 90%;*/
+/*}*/
+/*.orders-scroll-container{*/
+/*    display: block;*/
+/*    width: 100%;*/
+/*    overflow: auto;*/
+/*    height: 100%;*/
+/*    background-color: #f0f0f0;*/
+/*}*/
+/*.orders-table{*/
+/*    width: 100%;*/
+/*}*/
+/*.orders-scroll-container::-webkit-scrollbar {*/
+/*    width: 5px;*/
+/*    height: 8px;*/
+/*    background-color: #ffffff; !* or add it to the track *!*/
+/*}*/
+/*.orders-scroll-container::-webkit-scrollbar-thumb {*/
+/*    background: rgba(87, 84, 77, 0.4);*/
+/*    border-radius: 5px;*/
+/*}*/
+
+/*tr:hover {background-color: rgba(150, 147, 147, 0.75);}*/
+/*th, td {*/
+/*  border-bottom: 1px solid #ddd;*/
+/*}*/

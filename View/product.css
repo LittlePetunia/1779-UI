@@ -1,0 +1,62 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+body{
+    background-image: url('backpic.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat;
+}
+
+.data-info-container{
+    display: flex;
+    align-items: center;
+    margin-top: 3%;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.95);
+    margin-right: 5%;
+    margin-left: 5%;
+    border-radius: 10pt;
+    padding-top:10pt;
+    padding-bottom: 10pt;
+    height: 50%;
+    width: 90%;
+}
+
+.image-container{
+    max-width: 50%;
+    height: 100%;
+
+}
+.product-img{
+    width:100% ;
+    height: auto;
+    max-height: 100%;
+}
+.info-container{
+    width: 40%;
+    margin-right: 10%;
+    margin-left:10% ;
+}
+
+.title{
+    font-weight: bold;
+    font-size: 20px;
+}
+.data{
+    font-size: 16px;
+}
+
+.order-btn{
+    font-size: 20px;
+    color: #f0f0f0;
+    background-color: rgba(9, 7, 7, 0.93);
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-left: 35%;
+    margin-top: 2%;
+}

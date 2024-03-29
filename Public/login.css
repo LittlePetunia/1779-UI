@@ -1,0 +1,107 @@
+/*Basic CSS Part*/
+body {
+    font-family: Arial, sans-serif;
+    /*background-color: #f0f0f0;*/
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background-image: url('backpic.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat;
+}
+
+.header_box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+}
+
+h1{
+    width: 30%;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.login-container {
+    width: 20%;
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    margin-left: 35%;
+    margin-right: 35%;
+    margin-top: 5%;;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+    align-items: center;
+}
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+.login-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.register_button{
+    margin-top: 20px;
+    width: 100%;
+    display: block;
+    padding: 10px;
+    background-color: #f0f0f0;
+    color: #090707;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.register_button:hover {
+  background-color: rgba(0, 110, 179, 0.59); /* Background color when button is clicked and held */
+  color: white;
+}
+
+.separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0; /* Adjust spacing to your preference */
+    }
+
+.separator::before,
+.separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid rgba(122, 121, 121, 0.45); /* Adjust color to match your design */
+    margin: 0 10px; /* Adjust spacing to your preference */
+}
+
+#home{
+    color: #f0f0f0;
+    background-color: #090707;
+    font-size: 20px;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.admin{
+    font-size: 10pt;
+}

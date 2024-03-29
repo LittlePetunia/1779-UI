@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+     <link rel="stylesheet" href="login.css">
+    <script src="https://kit.fontawesome.com/6e0cd45d87.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<a href="/" id="home" class="fas fa-home"></a>
+<div class="login-container">
+    <h2 class="login-title">Create Your Account</h2>
+    <form id = "registerForm">
+        <input type="text" id="FirstName" placeholder="First Name" required>
+        <input type="text" id="SecondName" placeholder="Second Name" required>
+        <input type="text" id="Email" name="Email" placeholder="Email" required>
+        <input type="text" id="Address" placeholder="Address" required>
+        <input type="submit" value="Register">
+    </form>
+
+    <div class="separator">or Login</div>
+
+    <button id = "loginBtn" class = "register_button" value="Login"><B>Login</B></button>
+</div>
+
+<script>
+    document.getElementById('registerForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting via the browser
+
+            const FirstName = document.getElementById('FirstName').value;
+            const SecondName = document.getElementById('SecondName').value;
+            const Email = document.getElementById('Email').value;
+            const Address = document.getElementById('Address').value;
+            // const adminValue = document.querySelector('input[name="Admin"]:checked').value;
+
+            fetch('https://3txduis0cl.execute-api.us-east-1.amazonaws.com/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+
+                body: JSON.stringify({"email": Email,"firstName":FirstName,"lastName":SecondName, "address":Address}),
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                    return response.json();
+            })
+            .then(data => {
+                console.log(data)
+                if (data.status==="PASS") {
+                    alert(data.message)
+                    window.location.href = '/login';
+                } else {
+                    alert(data.message)
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        });
+
+    document.getElementById('loginBtn').addEventListener('click', function() {
+        window.location.href = '/login';
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,131 @@
+html(lang="en")
+  head
+    title admin
+    link(rel="stylesheet", href="/admin.css")
+    link(rel="stylesheet", href="https://unpkg.com/swiper/swiper-bundle.min.css")
+  body
+    include header
+    .admin-info-container
+      .admin-info-left-container
+          img(src="admin.jpg" alt="admin picture" class="admin-pic")
+          h2(style="margin-left:12%;") #[span=user.FirstName+" "+user.SecondName]
+      .admin-info-right-container
+          form(id="create-product")
+            h4.create-header Create New Product
+            .product-create-container
+              .product-create-left-container
+                input(type="text" id="ProductName" placeholder="Product Name" required)
+                input(type="text" id="Brand" placeholder="Brand" required)
+                input(type="number" id="Price" placeholder="Price" required)
+                input(type="text" id="ImageURL" placeholder="ImageURL" required)
+              .product-create-right-container
+                textarea(id="ProductDescription" placeholder="Product Description" required row="4")
+                input(type="submit" value="Create" id="create-btn")
+
+    .data-info-container
+      .data-title-bar
+        ul
+          li Users
+          li Products
+          li Orders
+      .data-display-container
+        div(class="users-box", style="display:block")
+          table.user-table
+            thead
+              tr(style="background-color:rgba(87, 84, 77, 0.4);")
+                th UserId
+                th Name
+                th Email
+            tbody
+              for ele in users.Items
+                tr
+                  th #[span=ele.UserId]
+                  th #[span=ele.FirstName+user.SecondName]
+                  th #[span=ele.UserEmail]
+                //(onclick="location.href='/people/"+ele.UserId+"';")
+
+        div(class="products-box", style="display:none;")
+          table.products-table
+            thead
+              tr(style="background-color:rgba(87, 84, 77, 0.4);")
+                th Product Id
+                th Name
+                th Price
+                th Brand
+            tbody
+              for product in products.products
+                tr(onclick="location.href='/product/"+product.ProductId+"';")
+                  th #[span=product.ProductId]
+                  th #[span=product.ProductName]
+                  th #[span=product.Price]
+                  th #[span=product.Brand]
+
+        div(class="orders-box", style="display:none;")
+          table.orders-table
+            thead
+              tr(style="background-color:rgba(87, 84, 77, 0.4);")
+                th OrderId
+                th UserId
+                th ProductId
+
+            tbody
+              for order in orders.Items
+                tr
+                  th #[span=order.OrderId]
+                  th #[span=order.UserId]
+                  th #[span=order.ProductId]
+    script.
+      document.getElementById('create-product').addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent the form from submitting via the browser
+
+        const imgUrl = document.getElementById('ImageURL').value;
+        const productName = document.getElementById('ProductName').value;
+        const price = document.getElementById('Price').value;
+        const description = document.getElementById('ProductDescription').value;
+        const Brand = document.getElementById('Brand').value;
+        // const adminValue = document.querySelector('input[name="Admin"]:checked').value;
+
+        fetch('https://ai43qb7kp9.execute-api.us-east-1.amazonaws.com/createProduct', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+
+          body: JSON.stringify({
+                    "brand": Brand,
+                    "imageUrl":imgUrl ,
+                    "price": price,
+                    "productDescription": description,
+                    "productName": productName
+                  }
+          ),
+        }).then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        }).then(data => {
+            alert(data.message);
+            location.reload()
+        }).catch((error) => {
+          console.error('Error:', error);
+        });
+      });
+
+      var lis=document.querySelector('ul').querySelectorAll('li');
+      var divs= document.querySelector('.data-display-container').querySelectorAll('div')
+      for(var i=0; i<lis.length;i++){
+        lis[i].setAttribute('index',i);
+        lis[i].onclick=function(){
+          for(var i=0; i< lis.length;i++){
+            lis[i].className='';
+          }
+          this.className='choose';
+          var index=this.getAttribute('index');
+          for(var i=0; i<divs.length;i++){
+            divs[i].style.display="none";
+          }
+          divs[index].style.display='block';
+        }
+      }
+

@@ -1,0 +1,54 @@
+html
+    head
+        title product
+        link(rel="stylesheet", href="/product.css")
+    body
+        include ../View/header
+        p(id="User-id" style="display:none") #[span=user.UserId]
+        .data-info-container
+            .image-container
+                img.product-img(src=product.ImageURL alt="user_image")
+            .info-container
+                h2 #[span=product.ProductName]
+                P
+                    span.title ID:
+                    span.data(id="Product-id") #[span=product.ProductId]
+                p
+                    span.title Brand:
+                    span.data #[span=product.Brand]
+                p
+                    span.title Price:
+                    span.data #[span=product.Price]
+                p
+                    span.title Description:
+                    p #[span=product.ProductDescription]
+
+                button(type="submit" class="order-btn" id="place") Place Order
+
+        script.
+            document.getElementById("place").addEventListener('click', function (event) {
+                event.preventDefault(); // Prevent the form from submitting via the browser
+                const productID = document.getElementById("Product-id").textContent
+                const userID=document.getElementById("User-id").textContent
+                fetch('https://19sa6lvwk2.execute-api.us-east-1.amazonaws.com/placeOrder', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+
+                    body: JSON.stringify({
+                        "userId": userID,
+                        "productId":productID
+                    }),
+                }).then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                }).then(data => {
+                    console.log(data)
+                    alert(data.message)
+                }).catch((error) => {
+                    console.error('Error:', error);
+                });
+            });

@@ -1,0 +1,24 @@
+html(lang="en")
+  head
+    title user
+    link(rel="stylesheet", href="/user.css")
+    script(src="https://kit.fontawesome.com/6e0cd45d87.js" crossorigin="anonymous")
+    style.
+
+  body
+    include ../View/header
+    .user-container
+      .user-left-container
+          img(src="/user.jpg" alt="user_image" class="user_photo")
+      .user-right-container
+          h5 User Id: #[span=person.UserId]
+          h4 Name: #[span=person.FirstName] #[span=person.SecondName]
+          h4 Address: #[span=person.Address]
+          h4 Email: #[span=person.UserEmail]
+
+
+
+
+
+
+

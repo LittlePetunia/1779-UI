@@ -1,0 +1,88 @@
+body{
+
+    background-image: url('backpic.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat;
+
+}
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+#home {
+    color: #f0f0f0;
+    background-color: #090707;
+    font-size: 20px;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+
+
+.user-container {
+    display: flex;
+    align-items: center;
+    margin-top: 5%;
+    justify-content: center;
+    background-color: rgba(234, 230, 222);
+    margin-right: 20%;
+    margin-left: 20%;
+    border-radius: 20pt;
+    border: 5px solid rgb(9, 7, 7);
+}
+
+.user-left-container {
+    margin-right: 20px;
+}
+
+
+.user-right-container {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.user_photo{
+    width: 150pt;
+    height: 150pt;
+    border-radius: 100px;
+    border: 10px solid rgba(0, 102, 255, 0.53);
+}
+.username{
+    color: rgba(165, 42, 42, 0.98);
+}
+
+.order-container {
+    background-color: rgba(234, 230, 222);
+    margin-right: 20%;
+    margin-left: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0;
+}
+
+.order-bar{
+    margin-top: 1%;
+    margin-right: 20%;
+    margin-left: 20%;
+    background-color: #090707;
+    color: #ffffff;
+
+    margin-bottom: 0;
+    padding: 2px 10px;
+}
+
+.orders-table{
+    width: 100%;
+}
+
+tr:hover {background-color: rgba(150, 147, 147, 0.75);}
+th, td {
+  border-bottom: 1px solid #ddd;
+}

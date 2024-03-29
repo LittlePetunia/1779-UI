@@ -1,0 +1,130 @@
+body{
+    /*background-color: rgb(240, 240, 240, 0.7);*/
+    background-image: url('backpic.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat;
+
+}
+.content_box{
+    background-color: rgb(255,255,255,0.9);
+    margin-right: 15%;
+    margin-left: 15%;
+    border-radius: 5px;
+
+}
+.header_box{
+    align-content: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 2%;
+}
+.search_box{
+    align-content: center;
+    justify-content: center;
+    display: flex;
+}
+
+.search{
+    width: 40%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 5px solid rgb(9, 7, 7, 0.79);
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.search_button{
+    font-size: 16px;
+    font-weight: bold;
+    background-color: rgb(9, 7, 7,0.79); /* Bootstrap primary color */
+    color: white;
+    border: none;
+    margin: 10px 0;
+    border-radius: 4px; /* Rounded borders for the button */
+    cursor: pointer; /* Mouse pointer changes to a hand icon */
+    transition: background-color 0.3s ease;
+}
+
+
+.recommend_box{
+    height: 400px;
+    width: 60%;
+    display: flex; /* Use flexbox for centering */
+    align-items: center; /* Vertically center the swiper-container */
+    justify-content: center; /* Horizontally center the swiper-container */
+    margin: auto; /* Top and Bottom margin with auto horizontal margin */
+    /*border: 1px solid #090707;*/
+}
+
+.swiper-container{
+    width: 60%;
+    height:auto;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    padding-left: 35%;
+    /*margin: 0 auto;*/
+
+}
+.recommend_img{
+    max-width: 100%; /* Ensures image does not overflow its container */
+    height: 300px; /* Fixed height, adjust as necessary */
+    object-fit: contain;
+
+}
+
+.swiper-pagination{
+    position: absolute;
+    width: auto;
+    text-align: center;
+    transform: translateX(-50%);
+    bottom: 10px; /* Adjusted for positioning at the bottom */
+    left: 50%;
+}
+.swiper-slide {
+    width: 100%;
+    display: flex; /* Enables flexbox for slides */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+}
+
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    /*margin-left: 15%;*/
+    /*margin-right: 15%;*/
+}
+.product_block{
+    width: 150pt;
+    height:200pt;
+    background-color: white;
+    margin: 10pt;
+    box-sizing: border-box;
+    text-align: center;
+    justify-content: center;
+    display: flex; /* Use flexbox for vertical alignment */
+    flex-direction: column; /* Stack your items vertically */
+
+
+}
+.product {
+    /*display: flex;*/
+    width: 150pt;
+    height:120pt;
+    box-sizing: border-box;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    padding-left: 10pt;
+    padding-right: 10pt;;
+}
+.product img {
+    max-width: 100%; /* Make image fill the container */
+    height: auto; /* Keep image aspect ratio */
+    max-height: 150px; /* Limit image height, adjust as needed */
+     /* Make the image a block-level element */
+    margin-top: auto
+}

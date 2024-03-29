@@ -1,0 +1,43 @@
+html(lang="en")
+  head
+    title user
+    link(rel="stylesheet", href="/user.css")
+    script(src="https://kit.fontawesome.com/6e0cd45d87.js" crossorigin="anonymous")
+    style.
+
+
+
+  body
+    include header
+
+    .user-container
+      .user-left-container
+          img(src="https://img2.woyaogexing.com/2020/06/04/0b736cbb09844ace8aadca73799031f5!400x400.jpeg" alt="user_image" class="user_photo")
+      .user-right-container
+          h2 Welcome #[span.username=user.FirstName]
+          h5 User Id: #[span=user.UserId]
+          h4 Name: #[span=user.FirstName] #[span=user.SecondName]
+          h4 Address: #[span=user.Address]
+          h4 Email: #[span=user.UserEmail]
+
+    h1.order-bar Order List
+    .order-container
+      if order.message == "Order not found"
+          p Order not found
+      else
+          table.orders-table
+              thead
+                  tr(style="background-color:rgba(87, 84, 77, 0.4);")
+                      th OrderId
+                      th ProductId
+              tbody
+                  for ele in order.order
+                      tr
+                          th #[span=ele.OrderId]
+                          th #[span=ele.ProductId]
+
+
+
+
+
+

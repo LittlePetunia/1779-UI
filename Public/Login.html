@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="login.css">
+    <script src="https://kit.fontawesome.com/6e0cd45d87.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <a href="/" id="home" class="fas fa-home"></a>
+<!--    <div class="header_box">-->
+<!--         <h1> E-Commerce Website </h1>-->
+<!--    </div>-->
+
+    <div class="login-container">
+        <h2 class="login-title">Login Your Account</h2>
+        <form id = "loginForm">
+            <input type="text" id = "email" name="email" placeholder="email" required>
+            <input type="submit" value="Login">
+        </form>
+
+        <div class="separator">or join us</div>
+
+        <button id = "registerBtn" class = "register_button" value="Register"><B>Register</B></button>
+    </div>
+
+
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting via the browser
+
+            const email = document.getElementById('email').value;
+            const requestOptions = {
+              method: 'GET',
+              headers: {
+                'Content-Type': 'application/json',
+                // Add any other headers you need here
+              }
+            };
+
+            fetch('https://3txduis0cl.execute-api.us-east-1.amazonaws.com/getUser/'+email, requestOptions)
+              .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                        return response.json();
+              })
+              .then(data => {
+                    console.log(data); // Here you can work with the data returned by the API
+                    if(data.message==="User found"){
+                        fetch('/login', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify(data.user),
+                        })
+                        .then(response => response.json())
+                        .catch((error) => {
+                            console.error('Error:', error);
+                        });
+
+                        console.log(data.message);
+                        window.location.href = '/';
+
+                    }else{
+                        alert("Username or Password is invalid, please check it again or register");
+                    }
+
+              })
+              .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+              });
+
+
+            // fetch('http://54.227.118.179/login/bcz', {
+            //     method: 'GET',
+            //     mode: 'no-cors',
+            //     headers: {
+            //         'Access-Control-Allow-Origin': '*'
+            //     },
+            //
+            // })
+            // .then(response => {console.log(response.status)
+            //     // if(response.ok){
+            //     //     return response.json();
+            //     // }
+            //     // throw new Error("Network Response Was Not OK.")
+            // })
+            // .then(data => {
+            //     console.log(data)
+            //     // if (data.user) {
+            //     //     window.location.href = '/';
+            //     // } else {
+            //     //     alert("Username or Password is invalid, please check it again or register");
+            //     // }
+            // })
+            // .catch((error) => {
+            //     console.error('Error:', error);
+            // });
+        });
+
+
+        document.getElementById('registerBtn').addEventListener('click', function() {
+            // Assuming you're running a local server and the register page is at '/register'
+            window.location.href = '/register';
+        });
+    </script>
+</body>
+
+</html>

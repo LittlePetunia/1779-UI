@@ -1,0 +1,25 @@
+html(lang="en")
+  head
+    title home
+    link(rel="stylesheet", href="home.css")
+
+  body
+    include header
+    .header_box
+      h1(style="color:black; font-size:50px") ECE1779 Sunglasses Web
+
+    .search_box
+      input.search(type="text", placeholder="search")
+      button.search_button Search
+
+    .content_box
+      .product-container
+        each product in products
+            .product_block
+                a.product(href="/product/"+product.ProductId)
+                  img(src=product.ImageURL, alt=product.ProductId)
+                h5 #[product.ProductName]
+                p Price: $#{product.Price}
+
+  script.
+
